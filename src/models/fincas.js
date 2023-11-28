@@ -4,6 +4,10 @@
 const mongoose = require ( 'mongoose');
 const FincasSchema = new mongoose.Schema(
     {
+    id: {
+        type: String,
+        required: [true, 'El campo id es obligatorio']
+    },
     numero: {
         type: String,
         required: [true, 'El Campo \'Numero\' es Obligatorio']
@@ -29,4 +33,4 @@ const FincasSchema = new mongoose.Schema(
 // Exportacion
 
 
-module.exports = model('fincas', FincasSchema)
+module.exports = mongoose.model('fincas', FincasSchema);
