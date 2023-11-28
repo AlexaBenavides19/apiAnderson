@@ -15,7 +15,7 @@ router.post('/fincas', (req, res) => {
 
 // Obtener todos los productos
 router.get('/fincas', (req, res) => {
-    categoriaSchema
+    FincasSchema
         .find()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
@@ -34,7 +34,6 @@ router.get('/fincas/:id', (req, res) => {
 router.put('/fincas/:id', (req, res) => { 
     const { id } = req.params;
     const { numero, nombreFinca, direccion,valorAlquiler,cantidadDias } = req.body;
-    categoriaSch
     FincasSchema
         .updateOne({ _id: id }, { $set: { numero, nombreFinca, direccion,valorAlquiler,cantidadDias } })
         .then((data) => res.json(data))
@@ -44,7 +43,6 @@ router.put('/fincas/:id', (req, res) => {
 // Eliminar un producto
 router.delete('/fincas/:id', (req, res) => { 
     const { id } = req.params;
-    categoriaSch
     FincasSchema
         .deleteOne({ _id: id })
         .then((data) => res.json(data))

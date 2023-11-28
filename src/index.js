@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
-const categoriaRoutes = require('./routes/categoria');
+const fincasRoutes = require('./routes/fincas');
 
 const app = express();
 
@@ -18,7 +18,7 @@ const port = process.env.PORT || 3000;
 
 // Middleware
 app.use(express.json());
-app.use('/api', categoriaRoutes);
+app.use('/api', fincasRoutes);
 
 // Rutas
 app.get('/', (req, res) => {
